@@ -1,0 +1,30 @@
+ ###########################################################
+   4   │ # file data ---> ver tipo de archivo
+   5   │ # head -n numero      tails -n numero
+   6   │ # pwd       -> ver ruta
+   7   │ # awk 'NR==numero'
+   8   │ # find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+   9   │ # cat asdf 2>/dev/null
+  10   │ # cat data.txt | wc -l       -> contar lineas
+  11   │ # cat data.txt | wc -l       -> contar caracteres
+  12   │ # mv /* /dev/null     ->  cuidado mano XD
+  13   │ # grep "mensaje" archi.type    -> 
+  14   │ # awk '/mensaje/' archivo.type | awk '{print $numero}'
+  15   │ # car data.txt | sort | uniq - u    ->  ordena y muestra repeticiones ....
+  16   │ # strings battery.sh | grep "echo"   -> lista caracteres legibles 
+  17   │ 
+  18   │ #cat data.txt 
+  19   │ #echo $(cat prueba.txt | base64 ) > prueba.txt
+  20   │ #echo $(cat prueba.txt | base64 -d) > prueba.txt
+  21   │ 
+  22   │ # tr 'x' 'y'   ->   x pasa a y  cuidado !!!  se puede hacer cesar o rot13
+  23   │ 
+  24   │ 
+  25   │ # contador=1   (cuidado declaracion de varbiales junto)
+  26   │ # let contador+=1     # contador = contador + 1
+  27   │ 
+  28   │ # 7z data.gzip   -> descomprime cualquier archivo
+  29   │ # 7z x data.gzip  -> descomprime 
+  30   │ # 7z l data.zip  -> ls de un zip
+───────┴─────────────────────────────────
+# | sed '/^%*//' 
