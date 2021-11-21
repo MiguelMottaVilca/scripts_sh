@@ -27,3 +27,6 @@
 # find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
 https://linuxhint.com/50_sed_command_examples/
 
+#ln -s /ruta-script/ /usr/bin  -> solo un archivo  "enlace simbolico"
+#export PATH=$PATH:/ruta -> carpeta con script
+

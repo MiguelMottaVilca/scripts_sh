@@ -1,0 +1,39 @@
+#! /bin/bash
+
+name=$1
+
+mkdir $name
+cd $name
+mkdir source
+
+touch CMakeLists.txt
+echo 'project("'$name'")
+
+cmake_minimum_required(VERSION 3.15)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+include_directories($(CMAKE_CURRENT_SOURCE_DIR)/source)
+
+
+add_executable('$name'_test source/main.cpp)' >> CMakeLists.txt
+
+touch .gitignore
+echo 'build' >> .gitignore
+
+cd source
+touch main.cpp 
+
+echo '#include <iostream>
+
+using namespace std;
+
+int main(){
+  
+//
+
+  return 0;
+}' >> main.cpp
+

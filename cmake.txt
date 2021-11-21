@@ -1,0 +1,19 @@
+crear carpeta CMakeLists.txt
+
+crear carpeta source con main.cpp
+
+cmake -S . -B build -G "Unix Makefiles"
+
+**     solo subir el txt y source     ***
+
+cd build
+
+make   ------ genera ejecutable   ... 
+: D
+
+make
+.
+.
+.
+.
+.

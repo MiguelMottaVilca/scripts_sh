@@ -1,0 +1,65 @@
+#!/bin/bash
+
+#Colours
+greenColour="\e[0;32m\033[1m"
+endColour="\033[0m\e[0m"
+redColour="\e[0;31m\033[1m"
+blueColour="\e[0;34m\033[1m"
+yellowColour="\e[0;33m\033[1m"
+purpleColour="\e[0;35m\033[1m"
+turquoiseColour="\e[0;36m\033[1m"
+grayColour="\e[0;37m\033[1m"
+
+#figlet -c -f block xrandr
+
+trap ctrl_c INT
+
+function ctrl_c(){
+  echo -e "\n\n${redColour}[!] Saliendo .... \n"${endColour}
+  exit 1
+}
+
+echo -e "${grayColour} 
+                                                        _|            
+          _|    _|  _|  _|_|    _|_|_|  _|_|_|      _|_|_|  _|  _|_|  
+            _|_|    _|_|      _|    _|  _|    _|  _|    _|  _|_|      
+          _|    _|  _|        _|    _|  _|    _|  _|    _|  _|        
+          _|    _|  _|          _|_|_|  _|    _|    _|_|_|  _|        
+     
+          ${endColour}"
+
+
+xrandr | grep connected
+xrandr --setprovideroutputsource 1 0 --auto
+#xrandr --setprovideroutputsource 1 0
+
+echo -e "\n\tConfig screen "
+
+echo -e "\n 1 Only eDP-1"
+echo -e " 2 Only HDMI-1-1"
+echo -e " 3 Two screen\n"
+
+echo -n "Insert number : "
+read number
+#echo "number : ${number}"
+#value=$(xrandr | grep HDMI-1-1 | sed 's/HDMI-1-1 //' | sed 's/ (.*//' | sed 's/ .*//' )
+
+if [ $number = 1 ]
+then 
+  echo -e "\n${grayColour}[!] eDP-1\tON"
+  echo -e "[!] HDMI-1-1\tOFF\n${grayColour}"
+  xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-1 --off --output HDMI-1-1 --off --output eDP-1-2 --off
+  #echo -e "Solo pantalla principal"
+elif [ $number = 2 ]
+then
+  echo -e "\n${grayColour}[!] eDP-1\tOFF"
+  echo -e "[!] HDMI-1-1\tON\n${grayColour}"
+  xrandr --output eDP-1 --off --output DP-1-1 --off --output HDMI-1-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output eDP-1-2 --off
+elif [ $number = 3 ]
+then 
+  # two screeen
+  echo -e "\n${grayColour}[!] eDP-1\tON"
+  echo -e "[!] HDMI-1-1\tON\n${endColour}"
+  xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-1 --off --output HDMI-1-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output eDP-1-2 --off
+  #echo -e "Dos pantallas"
+fi
