@@ -17,3 +17,6 @@ make
 .
 .
 .
+
+
+para abrir en windows .sls
